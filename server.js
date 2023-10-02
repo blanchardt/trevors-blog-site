@@ -2,20 +2,24 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-//const routes = require('./controllers');
+const routes = require('./controllers');
 //const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+//In order to keep the session secret a secret.
+require('dotenv').config();
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Set up Handlebars.js engine with custom helpers
+//Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({/*helpers*/});
 
+//Set up the sessions with cookies
 const sess = {
-  secret: 'Super secret secret',
+  secret: process.env.SE_SECRET,
   cookie: {
     maxAge: 300000,
     httpOnly: true,
@@ -31,7 +35,7 @@ const sess = {
 
 app.use(session(sess));
 
-// Inform Express.js on which template engine to use
+//Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
