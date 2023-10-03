@@ -10,23 +10,33 @@
 }
 
 body {
-  font-size: 23px;
+  background-color: var(--primary);
+  font-size: 18px;
 }
 
 main {
-  background-color: var(--primary);
   color: var(--secondary);
 }
 
+label {
+  font-weight: bold;
+  font-size: 23px;
+}
+
+input {
+  font-size: 23px;
+}
+
 .custom-header {
-  background-color: var(--secondary);
-  color: var(--primary);
+  background-color: var(--secondary) !important;
+  color: var(--primary) !important;
+  font-size: 23px;
 }
 
 .custom-nav-text {
   color: var(--primary);
   font-weight: bold;
-  padding-right: 10px;
+  padding-right: 15px;
 }
 
 .custom-nav {
@@ -43,4 +53,22 @@ main {
   font-size: 30px;
 }
 
+.custom-container {
+  max-width: 100% !important;
+}
 
+.custom-card {
+  border: 3px solid #1a1a1a !important;
+  background-color: var(--primary) !important;
+  color: var(--secondary) !important;
+}
+
+.custom-button {
+  background-color: #7e7b7b !important;
+  color: #dddcdc !important;
+}
+
+
+.bold-text {
+  font-weight: bold;
+}
