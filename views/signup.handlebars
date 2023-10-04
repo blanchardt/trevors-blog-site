@@ -2,8 +2,11 @@
   <nav class="col-12 custom-nav">
     <a class="custom-nav-text" href="/">Home</a>
     <a class="custom-nav-text" href="/dashboard">Dashboard</a>
-    <a class="custom-nav-text" href="/login">Login</a>
+    {{#if logged_in}}
     <a class="custom-nav-text" href="/logout">Logout</a>
+    {{else}}
+    <a class="custom-nav-text" href="/login">Login</a>
+    {{/if}}
   </nav>
   <div class="header-type col-12 col-md-3 text-center">The Tech Blog</div>
 </header>
@@ -15,7 +18,7 @@
           Sign Up
         </div>
         <div class="card-body">
-          <form class="form login-form">
+          <form class="form signup-form">
             <div class="form-group">
               <label for="username-login">Username</label>
               <input class="form-input" type="text" id="username-signup" />
