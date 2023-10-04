@@ -1,0 +1,19 @@
+<!--Set up the header-->
+<header class="col-12 container-fluid custom-header">
+  <nav class="col-12 custom-nav">
+    <a class="custom-nav-text" href="/">Home</a>
+    <a class="custom-nav-text" href="/dashboard">Dashboard</a>
+    {{#if logged_in}}
+    <a class="custom-nav-text" id="logout" href="/login">Logout</a>
+    {{else}}
+    <a class="custom-nav-text" href="/login">Login</a>
+    {{/if}}
+  </nav>
+  <div class="header-type col-12 col-md-3 text-center">Your Dashboard</div>
+</header>
+<!--Set up the main-->
+<main class="container container-fluid">
+</main>
+<footer>
+
+</footer>
