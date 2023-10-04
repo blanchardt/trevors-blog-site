@@ -12,7 +12,12 @@
   <div class="flex-column justify-space-around">
      {{{ body }}}
   </div>
-  </body>
+
+  <!--provide script for webpages to handle logouts for users who are logged in.-->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
 
 </html>
 
