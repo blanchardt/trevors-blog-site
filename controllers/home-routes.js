@@ -36,7 +36,7 @@ router.get('/comment/:id', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['id', 'username'],
+          attributes: ['username'],
         },
       ],
     });

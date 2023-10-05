@@ -28,13 +28,13 @@
       <div class="card custom-card mt-4">
         <div class="card-header custom-header bold-text"></div>
         <div class="card-body">
-          <form class="form create-blog">
+          <form class="form create-comment" data-id="{{id}}">
             <div class="form-group">
               <label for="blog-comment">Comment</label>
               <textarea class="form-control" rows="3" id="blog-comment"></textarea>
             </div>
             <div class="form-group">
-              <button class="btn btn-primary col-12 custom-button" data-id="{{id}}" data-user-id="{{user.id}}" type="submit">Submit</button>
+              <button class="btn btn-primary col-12 custom-button" data-id="{{id}}" type="submit">Submit</button>
             </div>
           </form>
         </div>
@@ -43,3 +43,5 @@
   </div>
   <a href="all-comments/{{id}}">View all comments</a>
 </main>
+
+<script src="../js/createComment.js"></script>
