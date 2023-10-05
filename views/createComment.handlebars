@@ -13,31 +13,33 @@
 </header>
 <!--Set up the main-->
 <main class="container container-fluid">
-  {{#if logged_in}}
-  {{#each blogs as |blog| }}
   <div class="row mb-3">
     <div class="col-12">
       <div class="card custom-card mt-4">
-        <a href="comment/{{blog.id}}" class="card-header custom-header bold-text custom-link blog-view"><span>{{blog.title}}</span><span class="blog-info">Posted by {{user.username}} on {{format_date blog.date_created}}</span></a>
+        <div class="card-header custom-header bold-text blog-header"><span>{{title}}</span><span class="blog-info">Posted by {{user.username}} on {{format_date date_created}}</span></div>
         <div class="card-body">
-          <p class="card-text">{{blog.content}}</p>
+          <p class="card-text">{{content}}</p>
         </div>
       </div>
     </div>
   </div>
-  {{/each}}
-  {{else}}
-  {{#each blogs as |blog| }}
   <div class="row mb-3">
     <div class="col-12">
       <div class="card custom-card mt-4">
-        <a href="all-comments/{{blog.id}}" class="card-header custom-header bold-text custom-link blog-view"><span>{{blog.title}}</span><span class="blog-info">Posted by {{user.username}} on {{format_date blog.date_created}}</span></a>
+        <div class="card-header custom-header bold-text"></div>
         <div class="card-body">
-          <p class="card-text">{{blog.content}}</p>
+          <form class="form create-blog">
+            <div class="form-group">
+              <label for="blog-comment">Comment</label>
+              <textarea class="form-control" rows="3" id="blog-comment"></textarea>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary col-12 custom-button" data-id="{{id}}" data-user-id="{{user.id}}" type="submit">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  {{/each}}
-  {{/if}}
+  <a href="all-comments/{{id}}">View all comments</a>
 </main>
