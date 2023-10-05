@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Blog } = require('../models');
+const { User, Blog, Comment, BlogComment } = require('../models');
 const withAuth = require('../utils/auth');
 
 //set up the homepage.
@@ -46,6 +46,42 @@ router.get('/comment/:id', withAuth, async (req, res) => {
 
     //Pass serialized data and session flag into template
     res.render('createComment', { 
+      ...blog, 
+      logged_in: true, 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//set up a route to view all comments for the selected blog post.
+router.get('/all-comments/:id', async (req, res) => {
+  try {
+    //Get all blogs and JOIN with user data
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+        { 
+          model: Comment, 
+          through: BlogComment, 
+          include: [
+            {
+              model: User,
+              attributes:['username']
+            }
+          ],
+        },
+      ],
+    });
+
+    //Serialize data so the template can read it
+    const blog = blogData.get({ plain: true });
+
+    //Pass serialized data and session flag into template
+    res.render('allComments', { 
       ...blog, 
       logged_in: true, 
     });
