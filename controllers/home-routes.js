@@ -47,6 +47,13 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+// Use withAuth middleware to prevent access to route
+router.get('/dashboard/create', withAuth, async (req, res) => {
+  res.render('newBlog', {
+    logged_in: true
+  });
+});
+
 //set up the login route.
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route

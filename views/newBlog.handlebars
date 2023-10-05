@@ -15,27 +15,26 @@
     <div class="col-12">
       <div class="card custom-card mt-4">
         <div class="card-header custom-header bold-text">
-          Login
+          Create New Post
         </div>
         <div class="card-body">
-          <form class="form login-form">
+          <form class="form create-blog">
             <div class="form-group">
-              <label for="username-login">Username</label>
-              <input class="form-input" type="text" id="username-login" />
+              <label for="blog-title">Title</label>
+              <input class="form-input" type="text" id="blog-title" />
             </div>
             <div class="form-group">
-              <label for="password-login">Password</label>
-              <input class="form-input" type="password" id="password-login" />
+              <label for="blog-content">Content</label>
+              <textarea class="form-control" rows="3" id="blog-content"></textarea>
             </div>
             <div class="form-group">
-              <button class="btn btn-primary col-12 custom-button" type="submit">Login!</button>
+              <button class="btn btn-primary col-12 custom-button" type="submit">Create</button>
             </div>
           </form>
-          <a href="/signup">Sign up instead</a>
         </div>
       </div>
     </div>
   </div>
 </main>
 
-<script src="./js/login.js"></script>
+<script src="../js/createBlog.js"></script>
