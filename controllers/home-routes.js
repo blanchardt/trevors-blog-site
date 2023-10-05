@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { User, Blog } = require('../models');
 const withAuth = require('../utils/auth');
 
 //set up the homepage.
@@ -30,16 +31,16 @@ router.get('/', async (req, res) => {
 // Use withAuth middleware to prevent access to route
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
-    // const userData = await User.findByPk(req.session.user_id, {
-    //   attributes: { exclude: ['password'] },
-    //   include: [{ model: Project }],
-    // });
+    //get the current user by the session id.
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Blog }],
+    });
 
-    // const user = userData.get({ plain: true });
+    const user = userData.get({ plain: true });
 
     res.render('dashboard', {
-      //...user,
+      ...user,
       logged_in: true
     });
   } catch (err) {
@@ -52,6 +53,22 @@ router.get('/dashboard/create', withAuth, async (req, res) => {
   res.render('newBlog', {
     logged_in: true
   });
+});
+
+//create a route to allow users to update their blog posts.
+router.get('/dashboard/:id', async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id);
+
+    const blog = blogData.get({ plain: true });
+
+    res.render('editBlog', {
+      ...blog,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 //set up the login route.

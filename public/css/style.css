@@ -72,6 +72,8 @@ input {
 .custom-button {
   background-color: #7e7b7b !important;
   color: var(--light) !important;
+  display: flex;
+  justify-content: space-between;
 }
 
 .custom-create-btn {
@@ -84,11 +86,18 @@ input {
   max-width: 300px;
 }
 
+.custom-link {
+  font-size: 23px !important;
+}
+
 
 .custom-button:hover {
   border-color: #7e7b7b !important;
 }
 
+.custom-link:hover {
+  text-decoration: none;
+}
 
 .bold-text {
   font-weight: bold;

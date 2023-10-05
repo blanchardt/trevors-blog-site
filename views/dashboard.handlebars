@@ -13,6 +13,13 @@
 </header>
 <!--Set up the main-->
 <main class="container container-fluid">
+  {{#if blogs.length}}
+  <div class="row pt-4">
+    {{#each blogs as |blog|}}
+    <a href="dashboard/{{blog.id}}" class="btn btn-primary col-12 custom-button custom-link mb-3"><span>{{blog.title}}</span><span>{{format_date blog.date_created}}</span></a>
+    {{/each}}
+  </div>
+  {{/if}}
 </main>
 <footer>
   <div class="d-grid gap-2 col-2 mx-auto">

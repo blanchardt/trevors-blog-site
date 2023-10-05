@@ -1,0 +1,43 @@
+<header class="col-12 container-fluid custom-header">
+  <nav class="col-12 custom-nav">
+    <a class="custom-nav-text" href="/">Home</a>
+    <a class="custom-nav-text" href="/dashboard">Dashboard</a>
+    {{#if logged_in}}
+    <a class="custom-nav-text" id="logout" href="/login">Logout</a>
+    {{else}}
+    <a class="custom-nav-text" href="/login">Login</a>
+    {{/if}}
+  </nav>
+  <div class="header-type col-12 col-md-3 text-center">The Tech Blog</div>
+</header>
+<main class="container container-fluid custom-container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card custom-card mt-4">
+        <div class="card-header custom-header bold-text">
+          Edit Post
+        </div>
+        <div class="card-body">
+          <form class="form create-blog">
+            <div class="form-group">
+              <label for="blog-title">Title</label>
+              <input class="form-input" type="text" id="blog-title" value="{{title}}" />
+            </div>
+            <div class="form-group">
+              <label for="blog-content">Content</label>
+              <textarea class="form-control" rows="3" id="blog-content" > {{content}}</textarea>
+            </div>
+          </form>
+            <div class="form-group">
+              <button class="btn btn-primary col-12 custom-button mb-3" data-id="{{id}}" id="update">Update Post</button>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary col-12 custom-button mb-1" data-id="{{id}}" id="delete">Delete Post</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="../js/editBlog.js"></script>
