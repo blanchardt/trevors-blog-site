@@ -41,7 +41,7 @@ Edit Blog Post:
 ## Credits  
 Created by: Trevor Blanchard  
 Link to repo: https://github.com/blanchardt/trevors-blog-site   
-Link to live site: https://git.heroku.com/fathomless-fortress-28560.git
+Link to live site: https://trevors-blog-site-602922bbe279.herokuapp.com/  
 
 ## License  
 This project is licensed under the MIT license.  
