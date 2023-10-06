@@ -127,5 +127,5 @@ input {
 }
 
 .center-align {
-  text-align: center;
+  justify-content: center;
 }
